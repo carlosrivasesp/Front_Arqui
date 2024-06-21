@@ -7,6 +7,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { VistaClienteComponent } from './vista-cliente/vista-cliente.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { VistaClienteComponent } from './vista-cliente/vista-cliente.component';
     PaginaPrincipalComponent,
     ProductosComponent,
     CategoriasComponent,
-    VistaClienteComponent
+    VistaClienteComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
