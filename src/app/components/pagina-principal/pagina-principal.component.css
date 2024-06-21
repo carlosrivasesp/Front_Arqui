@@ -3,7 +3,7 @@
     float: left; /* Hace que el sidebar flote a la izquierda */
 }
   
-.container {
+.main-content {
     margin-left: 25%; /* Deja espacio a la izquierda para el sidebar */
     padding: 20px; /* Añade un espacio entre el sidebar y la tabla */
 }

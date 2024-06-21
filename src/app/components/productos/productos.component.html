@@ -1,0 +1,39 @@
+
+
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="main-content">
+
+    <div class="title">
+        <h1>Gestionar Productos</h1>
+    </div>
+
+    <div class="menu">
+        <button type="button" class="btn btn-success" routerLink="/agregar-productos">Agregar</button>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of listProductos">
+                <th scope="row">{{producto.codigo}}</th>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.categoria}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.stock}}</td>
+                <td><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditar"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

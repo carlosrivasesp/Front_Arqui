@@ -1,0 +1,34 @@
+.sidebar {
+    width: 25%; /* Ancho del sidebar, ajusta según tu diseño */
+    float: left; /* Hace que el sidebar flote a la izquierda */
+}
+
+.main-content {
+    margin-left: 25%; /* Deja espacio a la izquierda para el sidebar */
+    padding: 20px; /* Añade un espacio entre el sidebar y la tabla */
+}
+
+.table {
+    width: 100%; /* Ajusta el ancho de la tabla */
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+  }
+  
+  .modal-dialog {
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+/*
+Centrar en pantallas más grandes
+*/
+  @media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 600px;
+      margin: 1.75rem auto;
+    }
+  }
+  

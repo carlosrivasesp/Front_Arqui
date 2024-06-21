@@ -1,0 +1,43 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #000000;
+    padding-top: 3.5rem;
+    color: #ffffff;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente del texto */
+  }
+  
+  .header {
+    text-align: center; /* Centrar el título */
+    margin-bottom: 2rem; /* Espacio entre el título y los enlaces */
+    padding: 2rem;
+    border-bottom: 1px solid #ffffff; /* Línea separadora */
+  }
+  
+  .title {
+    font-size: 2rem; /* Tamaño del título */
+    font-weight: bold; /* Negrita */
+  }
+  
+  .nav-link {
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones */
+    letter-spacing: 1px; /* Espacio entre letras */
+  }
+  
+  .nav-link:hover {
+    background-color: #212529;
+    color: #ffffff;
+  }
+  
+  .nav-link.active {
+    background-color: #212529;
+    color: #ffffff;
+  }
+  

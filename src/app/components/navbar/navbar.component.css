@@ -1,0 +1,28 @@
+  /* Estilo específico para el navbar */
+  .navbar-custom {
+    background-color: black; /* Color de fondo del navbar */
+    color: white; /* Color del texto del navbar */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 10px; /* Espaciado interno */
+  }
+  
+  .navbar-custom .nav-link {
+    color: white !important; /* Color del texto de los enlaces */
+  }
+  
+  .navbar-custom .nav-link:hover {
+    color: #ccc !important; /* Color del texto al pasar el mouse sobre los enlaces */
+  }
+  
+  .navbar-custom .nav-link.active {
+    font-weight: bold; /* Texto en negrita para el enlace activo */
+  }
+  
+  .navbar-custom .nav-item {
+    margin-right: 10px; /* Espaciado entre elementos */
+  }
+  
+  .navbar-custom .nav-link:not(.active):hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+  }
+  

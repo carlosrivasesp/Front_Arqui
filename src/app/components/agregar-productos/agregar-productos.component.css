@@ -11,3 +11,10 @@
 .table {
     width: 100%; /* Ajusta el ancho de la tabla */
 }
+
+/* VALIDACIONES */
+
+.text-danger {
+  text-align: start;
+  margin-left: 7px;
+}
