@@ -32,7 +32,7 @@
                 <td>{{producto.categoria}}</td>
                 <td>{{producto.precio}}</td>
                 <td>{{producto.stock}}</td>
-                <td><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditar"></i></td>
+                <td><i class="bi bi-pencil-square" [routerLink]="['/editar-productos', producto._id]"></i></td>
             </tr>
         </tbody>
     </table>

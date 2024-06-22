@@ -14,7 +14,6 @@ import { CategoriaService } from '../../services/categoria.service';
 })
 export class AgregarProductosComponent {
 
-  listProductos: Producto[] = [];
   categorias: Categoria[] = [];
 
   productoForm: FormGroup;

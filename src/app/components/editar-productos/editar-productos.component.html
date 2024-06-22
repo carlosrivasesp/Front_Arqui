@@ -1,0 +1,68 @@
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  
+  <div class="main-content">
+    <h1>Editar Producto</h1>
+    <form [formGroup]="productoForm" (ngSubmit)="editarProducto()" id="productoForm">
+      <div class="mb-3">
+        <label for="codigoProducto" class="form-label">Código</label>
+        <input type="text" formControlName="codigo" class="form-control" id="codigoProducto"
+          placeholder="Ingrese el código del producto" required>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('codigo')?.hasError('required') && productoForm.get('codigo')?.touched">
+          <span>El código del producto es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="nombreProducto" class="form-label">Nombre del Producto</label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombreProducto"
+          placeholder="Ingrese el nombre del producto" required>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('nombre')?.hasError('required') && productoForm.get('nombre')?.touched">
+          <span>El nombre del producto es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="categoriaProducto" class="form-label">Categoría</label>
+        <select class="form-select" formControlName="categoria" id="categoriaProducto" required>
+          <option *ngFor="let categoria of categorias" [value]="categoria.nombre" [selected]="categoria.nombre === productoForm.get('categoria')?.value">{{ categoria.nombre }}</option>
+        </select>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+          <span>Es necesario escoger la categoría</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="precioProducto" class="form-label">Precio</label>
+        <input type="number" formControlName="precio" class="form-control" id="precioProducto"
+          placeholder="Ingrese el precio del producto" required>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
+          <span>El precio es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="stockProducto" class="form-label">Stock</label>
+        <input type="number" formControlName="stock" class="form-control" id="stockProducto"
+          placeholder="Ingrese la cantidad en stock" required>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
+          <span>El stock es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="imagenProducto" class="form-label">Imagen</label>
+        <input type="file" formControlName="imagen" class="form-control" id="imagenProducto" accept="image/*">
+        <div class="text-danger" 
+        *ngIf="productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched">
+          <span>Es necesario cargar una imagen del producto</span>
+        </div>
+
+      </div>
+      <div class="footer">
+        <button type="button" class="btn btn-secondary" routerLink="/productos">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid" form="productoForm">Agregar</button>
+      </div>
+    </form>
+  </div>

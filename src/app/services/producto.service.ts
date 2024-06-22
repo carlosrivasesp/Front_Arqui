@@ -15,8 +15,13 @@ export class ProductoService {
   getProductos(): Observable <any> {
     return this.http.get(this.url);
   }
-
   postProductos(producto: Producto): Observable <any> {
     return this.http.post(this.url, producto);
+  }
+  getProducto(_id: string): Observable <any>{
+    return this.http.get(this.url + '/' + _id);
+  }
+  editarProducto(_id: string, producto: Producto): Observable <any>{
+    return this.http.put(this.url + '/' + _id, producto);
   }
 }

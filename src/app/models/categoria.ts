@@ -1,4 +1,5 @@
 export class Categoria {
+    _id?: number;
     nombre: string;
     descripcion: string;
 

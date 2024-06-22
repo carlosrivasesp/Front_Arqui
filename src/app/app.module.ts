@@ -17,6 +17,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AgregarProductosComponent } from './components/agregar-productos/agregar-productos.component';
 import { CrearCategoriasComponent } from './components/crear-categorias/crear-categorias.component';
+import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
+import { EditarCategoriasComponent } from './components/editar-categorias/editar-categorias.component';
 
 
 
@@ -30,7 +32,9 @@ import { CrearCategoriasComponent } from './components/crear-categorias/crear-ca
     SidebarComponent,
     NavbarComponent,
     AgregarProductosComponent,
-    CrearCategoriasComponent
+    CrearCategoriasComponent,
+    EditarProductosComponent,
+    EditarCategoriasComponent
   ],
   imports: [
     BrowserModule,

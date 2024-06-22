@@ -3,8 +3,8 @@
   </div>
   
   <div class="main-content">
-    <h1>Crear Categoria</h1>
-    <form [formGroup]="categoriaForm" (ngSubmit)="crearCategoria()" id="categoriaForm">
+    <h1>Editar Categoria</h1>
+    <form [formGroup]="categoriaForm" (ngSubmit)="editarCategoria()" id="categoriaForm">
       <div class="mb-3">
         <label for="nombreCategoria" class="form-label">Nombre</label>
         <input type="text" formControlName="nombre" class="form-control" id="nombreCategoria"
@@ -24,7 +24,7 @@
       </div>
       <div class="footer">
         <button type="button" class="btn btn-secondary" routerLink="/categorias">Cerrar</button>
-        <button type="submit" class="btn btn-primary" [disabled]="categoriaForm.invalid" form="categoriaForm">Agregar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="categoriaForm.invalid" form="categoriaForm">Aceptar</button>
       </div>
     </form>
   </div>
