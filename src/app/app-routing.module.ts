@@ -8,16 +8,22 @@ import { AgregarProductosComponent } from './components/agregar-productos/agrega
 import { CrearCategoriasComponent } from './components/crear-categorias/crear-categorias.component';
 import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
 import { EditarCategoriasComponent } from './components/editar-categorias/editar-categorias.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
+import { AgregarMarcasComponent } from './components/agregar-marcas/agregar-marcas.component';
+import { EditarMarcasComponent } from './components/editar-marcas/editar-marcas.component';
 
 const routes: Routes = [
   { path: '', component: PaginaPrincipalComponent },
   { path: 'productos', component: ProductosComponent },
   { path: 'categorias', component: CategoriasComponent },
+  { path: 'marcas', component: MarcasComponent },
   { path: 'cliente', component: VistaClienteComponent },
   { path: 'agregar-productos', component: AgregarProductosComponent},
+  { path: 'agregar-marcas', component: AgregarMarcasComponent},
   { path: 'crear-categorias', component: CrearCategoriasComponent},
   { path: 'editar-productos/:id', component: EditarProductosComponent},
-  { path: 'editar-categorias/:id', component: EditarCategoriasComponent}
+  { path: 'editar-categorias/:id', component: EditarCategoriasComponent},
+  { path: 'editar-marcas/:id', component: EditarMarcasComponent}
 ];
 
 @NgModule({

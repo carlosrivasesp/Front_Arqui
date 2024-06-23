@@ -1,0 +1,32 @@
+
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="main-content">
+
+    <div class="title">
+        <h1>Gestionar Marcas</h1>
+    </div>
+
+    <div class="menu">
+        <button type="button" class="btn btn-success" routerLink="/agregar-marcas">Agregar</button>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let marca of listMarcas">
+                <td>{{marca.nombre}}</td>
+                <td>{{marca.descripcion}}</td>
+                <td><i class="bi bi-pencil-square" [routerLink]="['/editar-marcas', marca._id]"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

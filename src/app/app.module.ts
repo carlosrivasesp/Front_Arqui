@@ -19,6 +19,9 @@ import { AgregarProductosComponent } from './components/agregar-productos/agrega
 import { CrearCategoriasComponent } from './components/crear-categorias/crear-categorias.component';
 import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
 import { EditarCategoriasComponent } from './components/editar-categorias/editar-categorias.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
+import { AgregarMarcasComponent } from './components/agregar-marcas/agregar-marcas.component';
+import { EditarMarcasComponent } from './components/editar-marcas/editar-marcas.component';
 
 
 
@@ -34,7 +37,10 @@ import { EditarCategoriasComponent } from './components/editar-categorias/editar
     AgregarProductosComponent,
     CrearCategoriasComponent,
     EditarProductosComponent,
-    EditarCategoriasComponent
+    EditarCategoriasComponent,
+    MarcasComponent,
+    AgregarMarcasComponent,
+    EditarMarcasComponent
   ],
   imports: [
     BrowserModule,

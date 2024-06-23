@@ -1,0 +1,20 @@
+.sidebar {
+    width: 25%; /* Ancho del sidebar, ajusta según tu diseño */
+    float: left; /* Hace que el sidebar flote a la izquierda */
+}
+
+.main-content {
+    margin-left: 25%; /* Deja espacio a la izquierda para el sidebar */
+    padding: 20px; /* Añade un espacio entre el sidebar y la tabla */
+}
+
+.table {
+    width: 100%; /* Ajusta el ancho de la tabla */
+}
+
+/* VALIDACIONES */
+
+.text-danger {
+  text-align: start;
+  margin-left: 7px;
+}

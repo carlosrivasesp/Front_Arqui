@@ -16,26 +16,15 @@ import { Router } from '@angular/router';
 export class ProductosComponent {
 
   listProductos: Producto[] = [];
-  categorias: Categoria[] = [];
-
-  productoForm: FormGroup;
+  listCategorias: Categoria[] = [];
 
   constructor(private _productoService: ProductoService, private _categoriaService: CategoriaService,
-     private fb: FormBuilder, private router: Router, private toastr: ToastrService
+     private router: Router, private toastr: ToastrService
   ){
-    this.productoForm = this.fb.group({
-      codigo: ['',Validators.required],
-      nombre: ['', Validators.required],
-      categoria: ['', Validators.required],
-      imagen: [''],
-      precio: ['', Validators.required],
-      stock: ['',Validators.required],
-    })
   }
 
   ngOnInit(): void {
-    this.obtenerProductos(),
-    this.obtenerCategorias()
+    this.obtenerProductos()
   }
 
   obtenerProductos(){
@@ -45,37 +34,6 @@ export class ProductosComponent {
     }, error => {
       console.log(error)
     })
-  }
-
-  obtenerCategorias(){
-    this._categoriaService.getCategorias().subscribe(data =>{
-      this.categorias = data
-    }, error => {
-      console.log(error)
-    })
-  }
-
-  agregarProducto(){
-    const prod: Producto = {
-      codigo: this.productoForm.get('codigo')?.value,
-      nombre: this.productoForm.get('nombre')?.value,
-      categoria: this.productoForm.get('categoria')?.value,
-      imagen: this.productoForm.get('imagen')?.value,
-      precio: this.productoForm.get('precio')?.value,
-      stock: this.productoForm.get('stock')?.value,
-    }
-    this._productoService.postProductos(prod).subscribe(data =>{
-      this.toastr.success('Producto registrado exitosamente.')
-      this.router.navigate(['/productos'])
-      this.productoForm.reset()
-    }, error => {
-      console.log(error)
-      this.toastr.error('Ocurrió un error al agregar el producto.')
-    })
-  }
-
-  refresh(){
-
   }
 }
 

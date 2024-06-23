@@ -6,6 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CategoriaService } from '../../services/categoria.service';
 import { Categoria } from '../../models/categoria';
 import { Producto } from '../../models/producto';
+import { Marca } from '../../models/marca';
+import { MarcaService } from '../../services/marca.service';
 
 @Component({
   selector: 'app-editar-productos',
@@ -16,9 +18,10 @@ export class EditarProductosComponent {
   id: string | null;
   productoForm: FormGroup;
 
-  categorias: Categoria[] = [];
+  listCategorias: Categoria[] = [];
+  listMarcas: Marca[] = [];
 
-  constructor(private _productoService: ProductoService, private _categoriaService:CategoriaService,
+  constructor(private _productoService: ProductoService, private _categoriaService:CategoriaService, private _marcaService: MarcaService,
     private fb: FormBuilder, private router: Router, private toastr: ToastrService, 
     private aRouter: ActivatedRoute){
 
@@ -29,18 +32,28 @@ export class EditarProductosComponent {
         imagen: [''],
         precio: ['', Validators.required],
         stock: ['',Validators.required],
+        marca: ['',Validators.required]
       })
       this.id = this.aRouter.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
     this.obtenerCategorias()
+    this.obtenerMarcas()
     this.obtenerDatosProducto()
   }
 
   obtenerCategorias(){
     this._categoriaService.getCategorias().subscribe(data =>{
-      this.categorias = data
+      this.listCategorias = data
+    }, error => {
+      console.log(error)
+    })
+  }
+
+  obtenerMarcas(){
+    this._marcaService.getMarcas().subscribe(data =>{
+      this.listMarcas = data
     }, error => {
       console.log(error)
     })
@@ -55,7 +68,8 @@ export class EditarProductosComponent {
           categoria: data.categoria,
           imagen: '',
           precio: data.precio,
-          stock: data.stock
+          stock: data.stock,
+          marca: data.marca
         })
       })
     }
@@ -69,6 +83,7 @@ export class EditarProductosComponent {
       imagen: this.productoForm.get('imagen')?.value,
       precio: this.productoForm.get('precio')?.value,
       stock: this.productoForm.get('stock')?.value,
+      marca: this.productoForm.get('marca')?.value
     }
     if(this.id != null){
       this._productoService.editarProducto(this.id,prod).subscribe(data=>{
@@ -81,4 +96,5 @@ export class EditarProductosComponent {
       })
     }
   }
+  //falta mostrar categoria e imagen
 }

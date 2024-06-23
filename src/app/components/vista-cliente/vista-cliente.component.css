@@ -1,0 +1,45 @@
+.row {
+    margin: 0;
+    padding: 0 15px; /* Añade espacio a los lados de la fila */
+}
+
+.col {
+    padding: 0 15px; /* Añade espacio a los lados de cada columna */
+}
+
+.card {
+    height: 100%; /* Permite que la tarjeta crezca para llenar el contenedor */
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido dentro de la tarjeta se organice verticalmente */
+}
+
+.card-body {
+    flex: 1; /* Permite que el cuerpo de la tarjeta crezca para llenar el espacio disponible */
+    margin: 20px; /* Espacio alrededor del contenido del card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio adicional entre los elementos */
+}
+
+.card-footer button {
+    margin: auto;
+    display: block;
+    width: 90%;
+}
+
+.card-footer {
+    border-bottom: none; /* Elimina el borde inferior */
+}
+
+.card-subtitle {
+    font-weight: 600;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Mantiene una relación de aspecto consistente */
+    object-fit: contain; /* Ajusta la imagen para que se vea completa */
+    display: block;
+    margin: auto; /* Centra la imagen verticalmente */
+}

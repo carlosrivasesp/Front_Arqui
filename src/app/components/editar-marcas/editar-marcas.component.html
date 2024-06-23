@@ -1,0 +1,30 @@
+<div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  
+  <div class="main-content">
+    <h1>Editar Marca</h1>
+    <form [formGroup]="marcaForm" (ngSubmit)="editarMarca()" id="marcaForm">
+      <div class="mb-3">
+        <label for="nombreMarca" class="form-label">Nombre</label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombreMarca"
+          placeholder="Ingrese el nombre de la categoria" required>
+        <div class="text-danger" 
+        *ngIf="marcaForm.get('nombre')?.hasError('required') && marcaForm.get('nombre')?.touched">
+          <span>El código del producto es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="descripcionMarca" class="form-label">Descripcion</label>
+        <textarea class="form-control" id="descripcionMarca" formControlName="descripcion" rows="3"></textarea>
+        <div class="text-danger" 
+        *ngIf="marcaForm.get('nombre')?.hasError('required') && marcaForm.get('nombre')?.touched">
+          <span>La descripcion es necesaria</span>
+        </div>
+      </div>
+      <div class="footer">
+        <button type="button" class="btn btn-secondary" routerLink="/marcas">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="marcaForm.invalid" form="marcaForm">Aceptar</button>
+      </div>
+    </form>
+  </div>

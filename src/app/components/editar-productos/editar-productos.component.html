@@ -26,7 +26,7 @@
       <div class="mb-3">
         <label for="categoriaProducto" class="form-label">Categoría</label>
         <select class="form-select" formControlName="categoria" id="categoriaProducto" required>
-          <option *ngFor="let categoria of categorias" [value]="categoria.nombre" [selected]="categoria.nombre === productoForm.get('categoria')?.value">{{ categoria.nombre }}</option>
+          <option *ngFor="let categoria of listCategorias" [value]="categoria.nombre" [selected]="categoria.nombre === productoForm.get('categoria')?.value">{{ categoria.nombre }}</option>
         </select>
         <div class="text-danger" 
         *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
@@ -52,17 +52,28 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="imagenProducto" class="form-label">Imagen</label>
-        <input type="file" formControlName="imagen" class="form-control" id="imagenProducto" accept="image/*">
+        <label for="marcaProducto" class="form-label">Marca</label>
+        <select class="form-select" formControlName="marca" id="marcaProducto" required>
+          <option *ngFor="let marca of listMarcas" [value]="marca.nombre">{{ marca.nombre }}</option>
+        </select>
+        <div class="text-danger" 
+        *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
+          <span>La marca es obligatorio</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="imagenProducto" class="form-label">Imagen del Producto</label>
+        <input type="text" formControlName="imagen" class="form-control" id="imagenProducto"
+          placeholder="Ingrese el url de la imagen del producto" required>
         <div class="text-danger" 
         *ngIf="productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched">
-          <span>Es necesario cargar una imagen del producto</span>
+          <span>Es necesario ingresar la url de la imagen del producto</span>
         </div>
-
       </div>
+
       <div class="footer">
         <button type="button" class="btn btn-secondary" routerLink="/productos">Cerrar</button>
-        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid" form="productoForm">Agregar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid" form="productoForm">Aceptar</button>
       </div>
     </form>
   </div>

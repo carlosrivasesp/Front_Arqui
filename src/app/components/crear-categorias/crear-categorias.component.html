@@ -11,7 +11,7 @@
           placeholder="Ingrese el nombre de la categoria" required>
         <div class="text-danger" 
         *ngIf="categoriaForm.get('nombre')?.hasError('required') && categoriaForm.get('nombre')?.touched">
-          <span>El código del producto es obligatorio</span>
+          <span>El nombre de la categoria es obligatorio</span>
         </div>
       </div>
       <div class="mb-3">
@@ -24,7 +24,7 @@
       </div>
       <div class="footer">
         <button type="button" class="btn btn-secondary" routerLink="/categorias">Cerrar</button>
-        <button type="submit" class="btn btn-primary" [disabled]="categoriaForm.invalid" form="categoriaForm">Agregar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="categoriaForm.invalid" form="categoriaForm">Crear</button>
       </div>
     </form>
   </div>

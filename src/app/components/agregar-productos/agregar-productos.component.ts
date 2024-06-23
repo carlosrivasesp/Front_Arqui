@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Categoria } from '../../models/categoria';
 import { CategoriaService } from '../../services/categoria.service';
+import { Marca } from '../../models/marca';
+import { MarcaService } from '../../services/marca.service';
 
 @Component({
   selector: 'app-agregar-productos',
@@ -14,11 +16,12 @@ import { CategoriaService } from '../../services/categoria.service';
 })
 export class AgregarProductosComponent {
 
-  categorias: Categoria[] = [];
+  listCategorias: Categoria[] = [];
+  listMarcas: Marca[] = [];
 
   productoForm: FormGroup;
 
-  constructor(private _productoService: ProductoService, private _categoriaService:CategoriaService,
+  constructor(private _productoService: ProductoService, private _categoriaService:CategoriaService, private _marcaService: MarcaService,
     private fb: FormBuilder, private router: Router, private toastr: ToastrService){
       this.productoForm = this.fb.group({
         codigo: ['',Validators.required],
@@ -27,11 +30,13 @@ export class AgregarProductosComponent {
         imagen: [''],
         precio: ['', Validators.required],
         stock: ['',Validators.required],
+        marca: ['',Validators.required]
       })
   }
 
   ngOnInit(): void {
     this.obtenerCategorias()
+    this.obtenerMarcas()
   }
 
   agregarProducto(){
@@ -42,6 +47,7 @@ export class AgregarProductosComponent {
       imagen: this.productoForm.get('imagen')?.value,
       precio: this.productoForm.get('precio')?.value,
       stock: this.productoForm.get('stock')?.value,
+      marca: this.productoForm.get('marca')?.value
     }
     this._productoService.postProductos(prod).subscribe(data =>{
       this.toastr.success('Producto registrado exitosamente.')
@@ -55,7 +61,15 @@ export class AgregarProductosComponent {
 
   obtenerCategorias(){
     this._categoriaService.getCategorias().subscribe(data =>{
-      this.categorias = data
+      this.listCategorias = data
+    }, error => {
+      console.log(error)
+    })
+  }
+
+  obtenerMarcas(){
+    this._marcaService.getMarcas().subscribe(data =>{
+      this.listMarcas = data
     }, error => {
       console.log(error)
     })
