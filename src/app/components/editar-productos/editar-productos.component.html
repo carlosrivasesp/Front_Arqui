@@ -1,6 +1,6 @@
 <div class="sidebar">
     <app-sidebar></app-sidebar>
-  </div>
+</div>
   
   <div class="main-content">
     <h1>Editar Producto</h1>
@@ -35,29 +35,34 @@
       </div>
       <div class="mb-3">
         <label for="precioProducto" class="form-label">Precio</label>
-        <input type="number" formControlName="precio" class="form-control" id="precioProducto"
+        <input type="number" min="0" formControlName="precio" class="form-control" id="precioProducto"
           placeholder="Ingrese el precio del producto" required>
         <div class="text-danger" 
         *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
           <span>El precio es obligatorio</span>
         </div>
+        <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('min') && productoForm.get('precio')?.touched">
+          <span>El precio debe ser mayor que 0</span>
+        </div>
       </div>
       <div class="mb-3">
         <label for="stockProducto" class="form-label">Stock</label>
-        <input type="number" formControlName="stock" class="form-control" id="stockProducto"
+        <input type="number" min="0" formControlName="stock" class="form-control" id="stockProducto"
           placeholder="Ingrese la cantidad en stock" required>
-        <div class="text-danger" 
-        *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
-          <span>El stock es obligatorio</span>
-        </div>
+          <div class="text-danger" *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
+            <span>El stock es obligatorio</span>
+          </div>
+          <div class="text-danger" *ngIf="productoForm.get('stock')?.hasError('min') && productoForm.get('stock')?.touched">
+            <span>El stock debe ser mayor que 0</span>
+          </div>
       </div>
       <div class="mb-3">
         <label for="marcaProducto" class="form-label">Marca</label>
         <select class="form-select" formControlName="marca" id="marcaProducto" required>
-          <option *ngFor="let marca of listMarcas" [value]="marca.nombre">{{ marca.nombre }}</option>
+          <option *ngFor="let marca of listMarcas" [value]="marca.nombre" [selected]="marca.nombre === productoForm.get('marca')?.value">{{ marca.nombre }}</option>
         </select>
         <div class="text-danger" 
-        *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
+        *ngIf="productoForm.get('marca')?.hasError('required') && productoForm.get('marca')?.touched">
           <span>La marca es obligatorio</span>
         </div>
       </div>

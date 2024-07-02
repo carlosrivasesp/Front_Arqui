@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { ProductoService } from '../../services/producto.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Categoria } from '../../models/categoria';
@@ -27,9 +27,9 @@ export class AgregarProductosComponent {
         codigo: ['',Validators.required],
         nombre: ['', Validators.required],
         categoria: ['', Validators.required],
-        imagen: [''],
-        precio: ['', Validators.required],
-        stock: ['',Validators.required],
+        imagen: ['', Validators.required],
+        precio: ['', [Validators.required, Validators.min(0)]],
+        stock: ['',[Validators.required, Validators.min(0)]],
         marca: ['',Validators.required]
       })
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductoService } from '../../services/producto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -29,9 +29,9 @@ export class EditarProductosComponent {
         codigo: ['',Validators.required],
         nombre: ['', Validators.required],
         categoria: ['', Validators.required],
-        imagen: [''],
-        precio: ['', Validators.required],
-        stock: ['',Validators.required],
+        imagen: ['', Validators.required],
+        precio: ['', [Validators.required, Validators.min(0)]],
+        stock: ['',[Validators.required, Validators.min(0)]],
         marca: ['',Validators.required]
       })
       this.id = this.aRouter.snapshot.paramMap.get('id');
@@ -66,7 +66,7 @@ export class EditarProductosComponent {
           codigo: data.codigo,
           nombre: data.nombre,
           categoria: data.categoria,
-          imagen: '',
+          imagen: data.imagen,
           precio: data.precio,
           stock: data.stock,
           marca: data.marca
@@ -96,5 +96,4 @@ export class EditarProductosComponent {
       })
     }
   }
-  //falta mostrar categoria e imagen
 }

@@ -1,10 +1,51 @@
 .sidebar {
-    width: 25%; /* Ancho del sidebar, ajusta según tu diseño */
-    float: left; /* Hace que el sidebar flote a la izquierda */
+    width: 25%;
+    float: left
 }
   
 .main-content {
-    margin-left: 25%; /* Deja espacio a la izquierda para el sidebar */
-    padding: 20px; /* Añade un espacio entre el sidebar y la tabla */
+    margin-left: 25%;
+    padding: 20px;
+}
+
+.seccion-bienvenida {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+  
+.info-general {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    
+}
+
+.seccion-rapida {
+    margin-bottom: 20px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    gap: 10px;
+  }
+  
+.seccion-noticias {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #6578a0;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
   
