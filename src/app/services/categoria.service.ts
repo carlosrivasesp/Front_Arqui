@@ -11,7 +11,7 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
-  getCategorias(): Observable <any> {
+  getCategorias(): Observable <any> { //observable sirve para peticiones HTTP
     return this.http.get(this.url);
   }
   postCategorias(categoria: Categoria): Observable <any> {
